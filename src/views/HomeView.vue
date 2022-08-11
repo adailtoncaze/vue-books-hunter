@@ -11,9 +11,6 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-5 md:cols-4 lg:cols-4 gap-6">
       <ItemBook />
-      <ItemBook />
-      <ItemBook />
-      <ItemBook />
     </div>
   </div>
 </template>
