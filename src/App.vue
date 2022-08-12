@@ -11,6 +11,7 @@
 // @ is an alias to /src
 import Navbar from "./components/header/NavbarComponent.vue";
 import Footer from "./components/FooterComponent.vue";
+
 export default {
   components: {
     Navbar,
@@ -18,3 +19,4 @@ export default {
   },
 };
 </script>
+
