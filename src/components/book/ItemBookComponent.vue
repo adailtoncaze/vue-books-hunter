@@ -4,9 +4,9 @@
     :key="book.id"
     class="max-w-sm bg-gray-800 flex flex-col justify-between"
   >
-    <a href="#">
+    <router-link :to="{name: 'detail-book', params: {bookId: book.id}}">
       <img :src="book.image_url" alt="" />
-    </a>
+    </router-link>
 
     <div class="p-5">
       <h2>{{ book.author }}</h2>

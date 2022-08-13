@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormView from '../views/FormView.vue'
+import DetailBookView from '../views/DetailBookView.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/new-book',
     name: 'new-book',
     component: FormView
+  },
+  {
+    path: '/book-detail/:bookId',
+    name: 'detail-book',
+    component: DetailBookView
   }
 ]
 
