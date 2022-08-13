@@ -129,8 +129,7 @@
 
 <script setup>
 import { supabase } from "@/lib/supabase";
-import { ref } from "@vue/runtime-core";
-import router from "../router";
+import { ref } from "vue";
 import { useToast } from "primevue/usetoast";
 
 const toast = useToast();
