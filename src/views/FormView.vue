@@ -1,7 +1,7 @@
 <template>
   <PVToast />
   <section class="text-gray-600 body-font relative">
-    <div class="container px-5 py-24 mx-auto bg-gradient-to-b from-gray-800">
+    <div class="container px-5 py-16 mx-auto bg-gradient-to-b from-gray-800">
       <div class="flex flex-col text-center w-full mb-12">
         <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
           Cadastro de Livro
@@ -54,7 +54,7 @@
                 ></textarea>
               </div>
             </div>
-            <div class="p-2 w-full">
+            <div class="p-2 w-1/2">
               <div class="relative">
                 <label for="image_url" class="leading-7 text-sm text-yellow-500"
                   >Capa (URL) *</label
@@ -64,6 +64,70 @@
                   id="image_url"
                   name="image_url"
                   v-model="image_url"
+                  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="author_avatar" class="leading-7 text-sm text-yellow-500"
+                  >Avatar do Autor (URL) *</label
+                >
+                <input
+                  type="text"
+                  id="author_avatar"
+                  name="author_avatar"
+                  v-model="author_avatar"
+                  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label
+                  for="publishing_company"
+                  class="leading-7 text-sm text-yellow-500"
+                  >Editora *</label
+                >
+                <input
+                  type="text"
+                  id="publishing_company"
+                  name="publishing_company"
+                  v-model="publishing_company"
+                  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div class="p-2 w-1/4">
+              <div class="relative">
+                <label
+                  for="page_number"
+                  class="leading-7 text-sm text-yellow-500"
+                  >Número de Páginas *</label
+                >
+                <input
+                  type="number"
+                  id="page_number"
+                  name="page_number"
+                  v-model="page_number"
+                  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+
+            <div class="p-2 w-1/4">
+              <div class="relative">
+                <label
+                  for="classification"
+                  class="leading-7 text-sm text-yellow-500"
+                  >Classificação *</label
+                >
+                <input
+                  type="text"
+                  id="classification"
+                  name="classification"
+                  v-model="classification"
                   class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-yellow-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
@@ -98,7 +162,7 @@
                 />
               </div>
             </div>
-            <div class="flex justify-end space-x-3 w-full">
+            <div class="flex justify-end space-x-3 w-full mt-5">
               <div>
                 <router-link to="/">
                   <PVButton
@@ -109,16 +173,15 @@
                   />
                 </router-link>
               </div>
-                <PVButton
-                  @click="submit"
-                    style="color: #fff"
-                    icon="pi pi-check"
-                    label="Confirmar"
-                    class="p-button-warning"
-                    :loading="isLoading"
-                  />
-              <div>
-              </div>
+              <PVButton
+                @click="submit"
+                style="color: #fff"
+                icon="pi pi-check"
+                label="Confirmar"
+                class="p-button-warning"
+                :loading="isLoading"
+              />
+              <div></div>
             </div>
           </div>
         </form>
@@ -139,12 +202,25 @@ const title = ref("");
 const author = ref("");
 const sinopse = ref("");
 const image_url = ref("");
+const author_avatar = ref("");
 const collection = ref("");
 const volume = ref("");
+const publishing_company = ref("");
+const page_number = ref("");
+const classification = ref("");
 
 const submit = async (e) => {
   e.preventDefault();
-  if (!title.value || !author.value || !sinopse.value || !image_url.value) {
+  if (
+    !title.value ||
+    !author.value ||
+    !sinopse.value ||
+    !image_url.value ||
+    !author_avatar ||
+    !publishing_company ||
+    !page_number ||
+    !classification
+  ) {
     // show the toast
     toast.add({
       severity: "warn",
@@ -158,8 +234,12 @@ const submit = async (e) => {
       author: author.value,
       sinopse: sinopse.value,
       image_url: image_url.value,
+      author_avatar: author_avatar.value,
       collection: collection.value,
       volume: volume.value,
+      publishing_company: publishing_company.value,
+      page_number: page_number.value,
+      classification: classification.value,
     };
     isLoading.value = true;
     const { status } = await supabase.from("books").insert(data);
@@ -174,8 +254,12 @@ const submit = async (e) => {
       author.value = "";
       sinopse.value = "";
       image_url.value = "";
+      author_avatar.value = "";
       collection.value = "";
       volume.value = "";
+      publishing_company.value = "";
+      page_number.value = "";
+      classification.value = "";
       isLoading.value = false;
       //router.push("/");
     } else {
