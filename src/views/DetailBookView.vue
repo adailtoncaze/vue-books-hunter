@@ -26,7 +26,25 @@
               >
             </p>
           </div>
+          <div class="opacity-80 rounded-lg flex space-x-2 bg-gradient-to-l from-gray-900 via-purple-500 to-indigo-600">
+            <div class="text-white rounded-lg p-2 text-center" style="width: 200px">
+              <p>Número de Páginas</p>
+              <p><i class="pi pi-file"></i></p>
+              <p class="font-semibold">1113 páginas</p>
+            </div>
+            <div class="text-white rounded-lg p-2 text-center" style="width: 200px">
+              <p>Editora</p>
+               <p><i class="pi pi-building"></i></p>
+              <p class="font-semibold">Galera</p>
+            </div>
+            <div class="text-white rounded-lg p-2 text-center" style="width: 200px">
+              <p>Classificação</p>
+               <p><i class="pi pi-user"></i></p>
+              <p class="font-semibold">+18 anos</p>
+            </div>
+          </div>
         </div>
+
         <div class="flex flex-col sm:flex-row mt-10">
           <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
             <div class="inline-flex w-40 h-40 overflow-hidden">
