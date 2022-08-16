@@ -78,20 +78,14 @@
               >SINOPSE</span
             >
             <p class="leading-relaxed text-lg mb-4 text-gray-300">
-              <PVScrollPanel style="width: 100%; height: 300px">
+              <PVScrollPanel style="width: 100%; height: 500px">
                {{ data.sinopse }}
               </PVScrollPanel>
               
             </p>
           </div>
         </div>
-        <div class="rounded-lg h-64 overflow-hidden mt-10">
-          <img
-            alt="content"
-            class="object-cover object-center h-full w-full"
-            src="https://dummyimage.com/1200x500"
-          />
-        </div>
+      
       </div>
     </div>
   </section>

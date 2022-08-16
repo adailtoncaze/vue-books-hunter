@@ -11,6 +11,9 @@
         </router-link>
         <div class="hidden md:flex items-center space-x-3">
           <ul class="flex items-center space-x-8">
+          <li>
+              <router-link to="/"> Início </router-link>
+            </li>
             <li>
               <router-link to="/books"> Livros </router-link>
             </li>
